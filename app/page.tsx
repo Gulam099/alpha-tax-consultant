@@ -84,7 +84,7 @@ export default function Page() {
             </div>
 
             {/* Mobile Menu Toggle */}
-            <button 
+            <button
               className="md:hidden p-2 text-foreground"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -95,29 +95,29 @@ export default function Page() {
           {/* Mobile Menu Content */}
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-border space-y-4 bg-background">
-              <a 
-                href="#services" 
+              <a
+                href="#services"
                 className="block text-base font-medium px-2 py-1 hover:text-primary transition"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </a>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className="block text-base font-medium px-2 py-1 hover:text-primary transition"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </a>
-              <Link 
-                href="/blog" 
+              <Link
+                href="/blog"
                 className="block text-base font-medium px-2 py-1 hover:text-primary transition"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </Link>
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="block text-base font-medium px-2 py-1 hover:text-primary transition"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -137,19 +137,27 @@ export default function Page() {
       {/* About Section */}
       <section id="about" className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-96">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
+            {/* Mobile-only Heading */}
+            <div className="md:hidden">
+              <h2 className="text-4xl font-bold">About Us</h2>
+            </div>
+
+            {/* Image */}
+            <div className="relative h-96 w-full">
               <Image
-                src="/hero-finance.jpg"
+                src="/photo.png"
                 alt="About us"
                 fill
                 className="object-cover rounded-2xl shadow-lg"
                 priority
               />
             </div>
+
+            {/* Text Content */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-4xl font-bold mb-4">About Us</h2>
+                <h2 className="hidden md:block text-4xl font-bold mb-4">About Us</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   With over 10 years of experience in accounting and tax services, we&apos;ve helped hundreds of businesses achieve financial success. Our team of certified professionals is dedicated to providing the highest quality service with a personal touch.
                 </p>

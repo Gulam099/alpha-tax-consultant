@@ -9,6 +9,7 @@ export default function HeroSection() {
         "/image-1.jpg",
         "/image-2.jpg",
         "/image-3.jpg",
+        "/photo.png"
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,9 +53,8 @@ export default function HeroSection() {
                             {images.map((img, index) => (
                                 <div
                                     key={index}
-                                    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
-                                        index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                                    }`}
+                                    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                                        }`}
                                 >
                                     <img
                                         src={img}
