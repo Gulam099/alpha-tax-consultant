@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown, Check, Star, MapPin, Phone, Mail, IndianRupee, BriefcaseBusiness, FileText, ShieldPlus, Loader2, Send, Search, Instagram, Facebook, MessageCircle } from 'lucide-react'
+import { ChevronDown, Check, Star, MapPin, Phone, Mail, IndianRupee, BriefcaseBusiness, FileText, ShieldPlus, Loader2, Send, Search, Instagram, Facebook, MessageCircle, Menu, X } from 'lucide-react'
 import HeroSection from '@/components/hero-section'
 import ServicesSection from '@/components/services-section'
 
@@ -20,6 +20,7 @@ export default function Page() {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', msg: string } | null>(null)
 
   const handleInputChange = (
@@ -60,30 +61,70 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-
-          {/* Logo - left side */}
-          <div className="flex items-center gap-2 absolute left-4 top-1/2 -translate-y-1/2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">
-              A
+      <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur min-h-[64px] flex items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">
+                A
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-lg leading-none text-primary">Alpha Tax</span>
+                <span className="text-[10px] tracking-widest text-muted-foreground uppercase font-semibold mt-1">Consultancy</span>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-lg leading-none text-primary">Alpha Tax</span>
-              <span className="text-[10px] tracking-widest text-muted-foreground uppercase font-semibold mt-1">Consultancy</span>
-            </div>
-          </div>
 
-          {/* Center Menu */}
-          <div className="flex justify-center">
-            <div className="hidden md:flex items-center gap-8 py-4">
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-8">
               <a href="#services" className="text-sm hover:text-primary transition">Services</a>
               <a href="#about" className="text-sm hover:text-primary transition">About</a>
               <Link href="/blog" className="text-sm hover:text-primary transition">Blog</Link>
               <a href="#contact" className="text-sm hover:text-primary transition">Contact</a>
             </div>
+
+            {/* Mobile Menu Toggle */}
+            <button 
+              className="md:hidden p-2 text-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
 
+          {/* Mobile Menu Content */}
+          {isMenuOpen && (
+            <div className="md:hidden py-4 border-t border-border space-y-4 bg-background">
+              <a 
+                href="#services" 
+                className="block text-base font-medium px-2 py-1 hover:text-primary transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Services
+              </a>
+              <a 
+                href="#about" 
+                className="block text-base font-medium px-2 py-1 hover:text-primary transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </a>
+              <Link 
+                href="/blog" 
+                className="block text-base font-medium px-2 py-1 hover:text-primary transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </Link>
+              <a 
+                href="#contact" 
+                className="block text-base font-medium px-2 py-1 hover:text-primary transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </a>
+            </div>
+          )}
         </div>
       </nav>
 

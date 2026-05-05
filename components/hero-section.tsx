@@ -47,8 +47,8 @@ export default function HeroSection() {
                     </div>
 
                     {/* RIGHT IMAGE SLIDER */}
-                    <div className="relative hidden md:block">
-                        <div className="relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg bg-muted">
+                    <div className="relative w-full">
+                        <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg bg-muted">
                             {images.map((img, index) => (
                                 <div
                                     key={index}
@@ -66,13 +66,13 @@ export default function HeroSection() {
                         </div>
 
                         {/* Floating Badge */}
-                        <div className="absolute -bottom-6 -left-6 bg-card px-6 py-4 rounded-2xl shadow-xl flex items-center gap-4 z-20 border border-border/50">
-                            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                                <CheckCircle className="w-6 h-6 text-primary-foreground" />
+                        <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-card px-4 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl shadow-xl flex items-center gap-3 md:gap-4 z-20 border border-border/50">
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                                <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
                             </div>
                             <div>
-                                <p className="font-bold text-foreground text-xl leading-none mb-1">1000+</p>
-                                <p className="text-sm text-muted-foreground font-medium">Happy Clients</p>
+                                <p className="font-bold text-foreground text-lg md:text-xl leading-none mb-1">1000+</p>
+                                <p className="text-xs md:text-sm text-muted-foreground font-medium">Happy Clients</p>
                             </div>
                         </div>
                     </div>
