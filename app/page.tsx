@@ -146,7 +146,7 @@ export default function Page() {
             {/* Image */}
             <div className="relative h-96 w-full">
               <Image
-                src="/photo.png"
+                src="/Photo.png"
                 alt="About us"
                 fill
                 className="object-cover rounded-2xl shadow-lg"
