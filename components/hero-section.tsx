@@ -8,8 +8,7 @@ export default function HeroSection() {
     const images = [
         "/image-1.jpg",
         "/image-2.jpg",
-        "/image-3.jpg",
-        "/Photo.png"
+        "/image-3.jpg"
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
