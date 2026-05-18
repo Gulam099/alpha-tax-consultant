@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useBlog } from '@/lib/blog-context';
 import { ChevronRight, Calendar, User } from 'lucide-react';
+import { UserNav } from '@/components/user-nav';
 
 const getSnippet = (content: string) => {
   if (!content) return '';
@@ -36,12 +37,15 @@ export default function BlogPage() {
           <Link href="/" className="text-xl font-semibold text-primary">
             Alpha Tax Consultant
           </Link>
-          <Link
-            href="/"
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            Back to Home
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/"
+              className="text-foreground hover:text-primary transition-colors hidden sm:block"
+            >
+              Back to Home
+            </Link>
+            <UserNav />
+          </div>
         </nav>
       </header>
 

@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { ChevronDown, Check, Star, MapPin, Phone, Mail, IndianRupee, BriefcaseBusiness, FileText, ShieldPlus, Loader2, Send, Search, Instagram, Facebook, MessageCircle, Menu, X, Quote, User, ChevronLeft, ChevronRight } from 'lucide-react'
 import HeroSection from '@/components/hero-section'
 import ServicesSection from '@/components/services-section'
+import { UserNav } from '@/components/user-nav'
 import {
   Carousel,
   CarouselContent,
@@ -149,15 +150,19 @@ export default function Page() {
               <a href="#about" className="text-sm hover:text-primary transition">About</a>
               <Link href="/blog" className="text-sm hover:text-primary transition">Updates</Link>
               <a href="#contact" className="text-sm hover:text-primary transition">Contact</a>
+              <UserNav />
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              className="md:hidden p-2 text-foreground"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Mobile Menu Toggle & User Nav */}
+            <div className="flex items-center gap-4 md:hidden">
+              <UserNav />
+              <button
+                className="p-2 text-foreground"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Content */}

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { useBlog } from '@/lib/blog-context';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
+import { UserNav } from '@/components/user-nav';
+import { PostInteractions } from '@/components/blog/post-interactions';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -52,7 +54,7 @@ function BlogPostContent({ slug }: { slug: string }) {
     <main className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border bg-card">
-        <nav className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link
             href="/blog"
             className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
@@ -60,6 +62,7 @@ function BlogPostContent({ slug }: { slug: string }) {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
           </Link>
+          <UserNav />
         </nav>
       </header>
 
@@ -142,6 +145,9 @@ function BlogPostContent({ slug }: { slug: string }) {
             );
           })}
         </div>
+        
+        {/* Post Interactions (Like/Comment) */}
+        <PostInteractions post={post as any} />
       </article>
 
       {/* Footer */}

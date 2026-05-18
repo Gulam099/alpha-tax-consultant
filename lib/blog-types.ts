@@ -1,3 +1,19 @@
+export interface Comment {
+  id: string;
+  userId: string;
+  userName: string;
+  userImage?: string;
+  text: string;
+  createdAt: string;
+}
+
+export interface Reactions {
+  like: string[]; // array of user IDs
+  love: string[];
+  insightful: string[];
+  celebrate: string[];
+}
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -9,6 +25,8 @@ export interface BlogPost {
   category: string;
   featured: boolean;
   image?: string;
+  reactions?: Reactions;
+  comments?: Comment[];
 }
 
 export interface BlogContextType {

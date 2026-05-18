@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { BlogProvider } from '@/lib/blog-context'
+import { SessionProvider } from '@/components/providers/session-provider'
+import { GoogleOneTap } from '@/components/providers/google-one-tap'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -24,9 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
-        <BlogProvider>
-          {children}
-        </BlogProvider>
+        <SessionProvider>
+          <GoogleOneTap clientId={process.env.GOOGLE_CLIENT_ID || ''} />
+          <BlogProvider>
+            {children}
+          </BlogProvider>
+        </SessionProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
